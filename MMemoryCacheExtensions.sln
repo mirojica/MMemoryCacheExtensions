@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMemoryCacheExtensions", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D74F6FE1-B773-471F-AA28-8A772D56FD10}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1C9A3838-63C0-49FA-A18D-86EB592D0286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMemoryCacheExtensionsTests", "tests\MMemoryCacheExtensionsTests\MMemoryCacheExtensionsTests.csproj", "{9BCBF004-7473-44CA-9A46-BD3B8032F9F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,10 @@ Global
 		{A11978CE-E2B6-465D-8821-162031EF2C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A11978CE-E2B6-465D-8821-162031EF2C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A11978CE-E2B6-465D-8821-162031EF2C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BCBF004-7473-44CA-9A46-BD3B8032F9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BCBF004-7473-44CA-9A46-BD3B8032F9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BCBF004-7473-44CA-9A46-BD3B8032F9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BCBF004-7473-44CA-9A46-BD3B8032F9F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,5 +34,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A11978CE-E2B6-465D-8821-162031EF2C4A} = {D74F6FE1-B773-471F-AA28-8A772D56FD10}
+		{9BCBF004-7473-44CA-9A46-BD3B8032F9F8} = {1C9A3838-63C0-49FA-A18D-86EB592D0286}
 	EndGlobalSection
 EndGlobal
