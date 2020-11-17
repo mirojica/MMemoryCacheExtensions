@@ -22,12 +22,12 @@ namespace MMemoryCacheExtensions
             UpdateKeys(cache, UpdateKeysActions.DELETE, key);
         }
 
-        public static IEnumerable<T> Get<T>(this IMemoryCache cache, Predicate<object> prediction)
+        public static IEnumerable<T> Get<T>(this IMemoryCache cache, Predicate<object> predicate)
         {
             if (!cache.TryGetValue(KEYS, out List<object> keys))
                 return new List<T>();
 
-            return keys.Where(key => prediction(key)).Select(key => cache.Get<T>(key));
+            return keys.Where(key => predicate(key)).Select(key => cache.Get<T>(key));
         }
 
         private static void UpdateKeys(IMemoryCache cache, string action, object key)
