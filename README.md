@@ -1,5 +1,6 @@
 # MMemoryCacheExtensions
 
+## MemoryCacheExtension
 Example:
     `cache: {key : value}`
         `{"context_1_1" : "item_1"}`
@@ -11,3 +12,7 @@ In order to get list of cached object for context
     `cache.Get<string>(key => key.ToString().StartsWith("context_1"));`
 
 Use `Add` instead of `Set` and `Delete` insted of `Remove` 
+
+## MemoryCacheDecorator
+
+TBD
