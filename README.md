@@ -1,6 +1,7 @@
 # MMemoryCacheExtensions
 
 ## MemoryCacheExtension
+Extension methods for in memory implementation.
 Example:
     `cache: {key : value}`
         `{"context_1_1" : "item_1"}`
