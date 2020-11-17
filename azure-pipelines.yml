@@ -39,6 +39,10 @@ steps:
     command: pack
     versioningScheme: byPrereleaseNumber
 
+- task: NuGetAuthenticate@0
+  inputs:
+    nuGetServiceConnections: Nuget.org
+
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
