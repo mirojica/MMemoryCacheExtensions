@@ -1,37 +1,37 @@
+﻿using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.Extensions.Caching.Memory;
-using NUnit.Framework;
 using MMemoryCacheExtensions;
-using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace MMemoryCacheExtensionsTests
 {
-    public class MemoryCacheExtensionTests
+    public class MemoryCacheDecoratorTests
     {
-        public IMemoryCache ACache => new MemoryCache(new MemoryCacheOptions());
+        public IMemoryCache ACache => new MemoryCacheDecorator(new MemoryCache(new MemoryCacheOptions()));
 
         [Test]
-        public void Add_item_into_cache_and_update_list_of_keys()
+        public void Set_item_into_cache_and_update_list_of_keys()
         {
             var actualItem = "new item";
             var cache = ACache;
 
-            cache.Add("item_1_key", actualItem);
+            cache.Set("item_1_key", actualItem);
 
             cache.Get<List<object>>(MemoryCacheExtensions.KEYS).Should().ContainSingle(key => key.Equals("item_1_key"));
             cache.Get("item_1_key").Should().BeEquivalentTo(actualItem);
         }
 
         [Test]
-        public void Delete_item_from_cache_and_update_list_of_keys()
+        public void Remove_item_from_cache_and_update_list_of_keys()
         {
             var actualItem = "new item 1";
             var cache = ACache;
-            cache.Add("item_2_key", actualItem);
+            cache.Set("item_2_key", actualItem);
 
             cache.Get<List<object>>(MemoryCacheExtensions.KEYS).Should().ContainSingle(key => key.Equals("item_2_key"));
 
-            cache.Delete("item_2_key");
+            cache.Remove("item_2_key");
 
             cache.Get<List<object>>(MemoryCacheExtensions.KEYS).Should().BeEmpty();
             cache.Get("item_2_key").Should().BeNull();
@@ -41,10 +41,10 @@ namespace MMemoryCacheExtensionsTests
         public void Get_items_which_keys_satisfy_criteria()
         {
             var cache = ACache;
-            cache.Add("item_3_key", "item_3");
-            cache.Add("item_4_key", "item_4");
-            cache.Add("something_5_key", "item_5");
-            cache.Add("something_6_key", "item_6");
+            cache.Set("item_3_key", "item_3");
+            cache.Set("item_4_key", "item_4");
+            cache.Set("something_5_key", "item_5");
+            cache.Set("something_6_key", "item_6");
 
             var items = cache.Get<string>(key => key.ToString().StartsWith("item_"));
 
